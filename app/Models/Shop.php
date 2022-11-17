@@ -46,7 +46,7 @@ class Shop extends Model
     /**
      * Get url
      */
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
         return LaravelLocalization::localizeURL('shop/' . $this->id);
     }

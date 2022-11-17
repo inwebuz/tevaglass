@@ -30,7 +30,7 @@ class Poll extends Model
         return $query->where('status', static::STATUS_ACTIVE);
     }
 
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
         return LaravelLocalization::localizeURL('polls/' . $this->id);
     }

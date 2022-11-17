@@ -96,7 +96,7 @@ class Order extends Model
     /**
      * Get url
      */
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
         return LaravelLocalization::localizeURL('order/' . $this->id . '-' . md5($this->created_at));
     }

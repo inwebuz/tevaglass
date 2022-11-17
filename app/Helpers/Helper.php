@@ -361,7 +361,7 @@ class Helper
         if ($foundModel && $model) {
             $model->load('translations');
             foreach (config('laravellocalization.supportedLocales') as $key => $value) {
-                $value['url'] = $model->getURL($key);
+                $value['url'] = $model->getUrl($key);
                 $linkItem = new LinkItem($value['native'], $value['url']);
                 $linkItem->key = $key;
                 if ($key == $currentLocale) {

@@ -16,7 +16,7 @@ class ProductController extends Controller
         $breadcrumbs = new Breadcrumbs();
         $page = Page::where('id', 4)->withTranslation($locale)->firstOrFail();
         $breadcrumbs->addItem(new LinkItem($page->getTranslatedAttribute('name'), $page->url, LinkItem::STATUS_INACTIVE));
-        $categories = Category::active()->withTranslation($locale)->latest()->get();
+        $categories = Category::active()->parents()->withTranslation($locale)->orderBy('order')->latest()->get();
         return view('products.index', compact('breadcrumbs', 'page', 'categories'));
     }
 

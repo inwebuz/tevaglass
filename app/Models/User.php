@@ -57,7 +57,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     /**
      * Get url
      */
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
         return LaravelLocalization::localizeURL('user/' . $this->id);
     }

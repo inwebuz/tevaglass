@@ -498,6 +498,23 @@ $(function () {
         );
     });
 
+    let headerSubmenuTimeout;
+    $('.header__link.header__link__has__submenu')
+        .on('mouseenter', function(){
+            clearTimeout(headerSubmenuTimeout);
+            $('.header__link.header__link__has__submenu').removeClass('active');
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active');
+            }
+        })
+        .on('mouseleave', function(){
+            headerSubmenuTimeout = setTimeout(() => {
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active');
+                }
+            }, 300);
+        })
+
     /* theme scripts */
 
     /* text to speech btn */

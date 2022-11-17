@@ -47,6 +47,8 @@ class Header extends Component
         // $address = Helper::staticText('contact_address', 300)->getTranslatedAttribute('description');
         // $workHours = Helper::staticText('work_hours', 300)->getTranslatedAttribute('description');
 
+        $categories = Category::active()->parents()->withTranslation($locale)->orderBy('order')->latest()->get();
+
         $q = request('q', '');
 
         $badEye = json_decode(request()->cookie('bad_eye'), true);
@@ -58,6 +60,6 @@ class Header extends Component
             ];
         }
 
-        return view('components.header', compact('headerMenuItems', 'logo', 'logoLight', 'q', 'badEye'));
+        return view('components.header', compact('headerMenuItems', 'logo', 'logoLight', 'q', 'badEye', 'categories'));
     }
 }

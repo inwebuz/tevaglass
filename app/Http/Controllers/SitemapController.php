@@ -37,7 +37,7 @@ class SitemapController extends Controller
             foreach ($content['items'] as $item) {
                 foreach($locales as $locale) {
                     $all[] = [
-                        'url' => $item->getURL($locale),
+                        'url' => $item->getUrl($locale),
                         'priority' => $content['priority'],
                         'lastModificationDate' => $item->updated_at->format(DateTime::ATOM) ?? date('Y-m-d'),
                         'changeFrequency' => $content['changeFrequency'],

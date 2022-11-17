@@ -63,12 +63,12 @@ class Store extends Model
         return $this->image ? Voyager::image($this->getThumbnail($this->image, 'large')) : asset('images/no-image.jpg');
     }
 
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
-        return $this->getURL();
+        return $this->getUrl();
     }
 
-    public function getURL($lang = '')
+    public function getUrl($lang = '')
     {
         if (!$lang) {
             $lang = app()->getLocale();

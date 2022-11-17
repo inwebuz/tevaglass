@@ -43,7 +43,20 @@ $siteTitle = Helper::setting('site.title');
         </a>
         <div class="header__nav">
             @foreach ($headerMenuItems as $item)
-                <a href="{{ $item->url }}" class="header__link">{{ $item->name }}</a>
+                <div class="header__link @if($item->url == route('products.index')) header__link__has__submenu @else header__link__no__submenu @endif">
+                    <a href="{{ $item->url }}">{{ $item->name }}</a>
+                    @if ($item->url == route('products.index'))
+                        <div class="header__link__submenu">
+                            <ul>
+                                @foreach ($categories as $category)
+                                    <li>
+                                        <a href="{{ $category->url }}">{{ $category->getTranslatedAttribute('name') }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
             @endforeach
         </div>
         <div class="header__btn">

@@ -46,15 +46,15 @@ class Promotion extends Model
     /**
      * Get url
      */
-    public function getURLAttribute()
+    public function getUrlAttribute()
     {
-        return $this->getURL();
+        return $this->getUrl();
     }
 
     /**
      * Get url
      */
-    public function getURL($lang = '')
+    public function getUrl($lang = '')
     {
         if (!$lang) {
             $lang = app()->getLocale();
