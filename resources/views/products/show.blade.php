@@ -6,31 +6,31 @@
 
 @section('content')
 
-@include('partials.page_top', ['title' => $product->getTranslatedAttribute('name'), 'bg' => $product->bg])
+    @include('partials.page_top', ['title' => $product->getTranslatedAttribute('name'), 'bg' => $product->bg])
 
-<section class="section">
-    <div class="container">
-        <div class="info__container">
-            <div class="info">
-                <div class="info__half">
-                    <div class="info__photo">
-                        <img src="{{ $product->img }}" alt="{{ $product->getTranslatedAttribute('name') }}" />
+    <section class="section">
+        <div class="container">
+            <div class="info__container">
+                <div class="info">
+                    <div class="info__half">
+                        <div class="info__photo">
+                            <img src="{{ $product->img }}" alt="{{ $product->getTranslatedAttribute('name') }}" />
+                        </div>
+                    </div>
+                    <div class="info__content">
+                        <h2 class="info__title">more about product</h2>
+                        <p class="info__text">{{ $product->getTranslatedAttribute('description') }}</p>
+                        <button class="btn btn--filled btn--md btn--order" type="button">
+                            enquire now
+                        </button>
                     </div>
                 </div>
-                <div class="info__content">
-                    <h2 class="info__title">more about product</h2>
-                    <p class="info__text">{{ $product->getTranslatedAttribute('description') }}</p>
-                    <button class="btn btn--filled btn--md btn--order" type="button">
-                        enquire now
-                    </button>
+
+                <div class="static">
+                    {!! $product->getTranslatedAttribute('body') !!}
                 </div>
-            </div>
 
-            <div class="static">
-                {!! $product->getTranslatedAttribute('body') !!}
-            </div>
-
-            {{-- <div class="info">
+                {{-- <div class="info">
                 <div class="info__half">
                     <div class="info__photo">
                         <img src="./assets/img/product-4.jpg" alt="" />
@@ -55,7 +55,7 @@
                 </div>
             </div> --}}
 
-            {{-- <div class="info-materials">
+                {{-- <div class="info-materials">
                 <h2 class="info__title">Materials and Finishes</h2>
                 <ul class="info__list">
                     <li>Extruded rigid PVC with white smooth, homogeneous surface</li>
@@ -81,21 +81,21 @@
             </div>
         </div> --}}
 
-        <div class="others">
-            <h2 class="others__title">Other products</h2>
-            @foreach ($otherProducts as $otherProduct)
-            <div class="others__box">
-                <a href="{{ $otherProduct->url }}" class="other">
-                    <div class="other__photo">
-                        <img src="{{ $otherProduct->small_img }}" alt="" />
-                    </div>
-                    <h3 class="other__name">{{ $otherProduct->getTranslatedAttribute('name') }}</h3>
-                </a>
+                <div class="others">
+                    <h2 class="others__title">Other products</h2>
+                    @foreach ($otherProducts as $otherProduct)
+                        <div class="others__box">
+                            <a href="{{ $otherProduct->url }}" class="other">
+                                <div class="other__photo">
+                                    <img src="{{ $otherProduct->small_img }}" alt="" />
+                                </div>
+                                <h3 class="other__name">{{ $otherProduct->getTranslatedAttribute('name') }}</h3>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            @endforeach
-        </div>
-    </div>
-</section>
+    </section>
 
 @endsection
 
