@@ -26,6 +26,16 @@
     <br>
 </section>
 
+<section>
+    <div class="container">
+        <div class="static">
+            {!! $category->getTranslatedAttribute('body') !!}
+        </div>
+    </div>
+    <br>
+    <br>
+</section>
+
 @can('edit', $category)
 <div class="my-4">
     <a href="{{ url('admin/categories/' . $category->id . '/edit') }}" class="btn btn-lg btn-primary"

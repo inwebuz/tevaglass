@@ -319,8 +319,9 @@ ul {
 .header__link.active .header__link__submenu {
     opacity: 1;
     transform: translateY(0);
-    max-height: 200px;
+    max-height: 1000px;
     transition: transform 0.3s, opacity 0.3s, max-height 0s linear 0s;
+    overflow-y: auto;
 }
 .header__link__submenu ul {
     padding: 10px 0;
